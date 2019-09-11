@@ -5,9 +5,11 @@ jobs:
       - image: alpine:3.7
     steps:
       - run:
-          name: The First Step
+          name: Running test
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+      echo Running test
+      mkdir -p /tmp/test-results
+      make test
+
 
             
