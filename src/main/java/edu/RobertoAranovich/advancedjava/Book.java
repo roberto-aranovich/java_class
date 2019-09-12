@@ -86,10 +86,10 @@ public class Book {
         if (author.isAlive()) {
             return false;
         } else {
-            Calendar cal = Calendar.getInstance();
-            int currentYear = cal.get(Calendar.YEAR);
-            cal.setTime(author.getDateOfDeath());
-            int yearOfDeath = cal.get(Calendar.YEAR);
+            Calendar calendar = Calendar.getInstance();
+            int currentYear = calendar.get(Calendar.YEAR);
+            calendar.setTime(author.getDateOfDeath());
+            int yearOfDeath = calendar.get(Calendar.YEAR);
             int copyrightExpiration = 70;
             if ((currentYear - yearOfDeath) > copyrightExpiration) {
                 return true;
