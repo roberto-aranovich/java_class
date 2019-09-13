@@ -5,5 +5,7 @@ jobs:
       - image: alpine:3.7
     steps:
       - run:
-          mvn package
-         
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
