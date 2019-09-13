@@ -1,11 +1,19 @@
-version: 2.1
+version: 2
 jobs:
   build:
+    working_directory: ~/circleci-demo
+
     docker:
-      - image: alpine:3.7
+      - image: circleci/openjdk:8-jdk-stretch
+
     steps:
-      - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+
+      - checkout
+
+      - run: mvn package
+
+      - store_test_results:
+          path: target/surefire-reports
+
+      - store_artifacts:
+          path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
