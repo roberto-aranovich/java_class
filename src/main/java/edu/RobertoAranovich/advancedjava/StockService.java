@@ -1,7 +1,7 @@
 package edu.RobertoAranovich.advancedjava;
 
 /**
- *  This interface describes an API for getting stock data.
+ * This interface describes an API for getting stock data.
  */
 public interface StockService {
     /**
@@ -9,7 +9,7 @@ public interface StockService {
      * Used to get history data for the stock.
      *
      * @param symbol the stock symbol of the company you want a quote for.
-     *               e.g. APPL for APPLE
+     *               e.g. MMM for 3M
      * @return a  StockQuote instance
      */
     StockQuote getQuote(String symbol);
