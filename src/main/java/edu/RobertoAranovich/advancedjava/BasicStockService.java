@@ -12,8 +12,8 @@ import java.util.*;
  */
 
 public class BasicStockService implements StockService {
-    private SimpleDateFormat dateFormat = new SimpleDateFormat( "MM-dd-yyyy" );
-    private ArrayList<StockQuote> stockQuoteList = new ArrayList<>();
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat( "MM-dd-yyyy" );
+    private static ArrayList<StockQuote> stockQuoteList = new ArrayList<>();
 
     /**
      * Implementation of getQuote method that returns a
@@ -59,7 +59,7 @@ public class BasicStockService implements StockService {
      * Method to populate a list of hard coded instances of StockQuote
      */
 
-    public void populateList() throws ParseException {
+    public static void populateList() throws ParseException {
 
         String symbol = "MMM";
 

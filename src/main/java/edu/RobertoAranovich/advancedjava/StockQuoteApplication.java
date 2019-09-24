@@ -23,7 +23,7 @@ public class StockQuoteApplication {
         Date until = dateFormat.parse( "09-19-2019" );
         Calendar calendarUntil = Calendar.getInstance();
         calendarUntil.setTime( until );
-        StockService stockService = buildStockService();
+        BasicStockService stockService = (BasicStockService) buildStockService();
 
         stockService.populateList();
         StockQuote aQuote = stockService.getQuote( "MMM", calendarFrom );

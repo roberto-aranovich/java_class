@@ -33,5 +33,4 @@ public interface StockService {
     List<StockQuote> getQuotes(String symbol, Calendar from,
                                Calendar until) throws ParseException;
 
-    void populateList() throws ParseException;
 }
