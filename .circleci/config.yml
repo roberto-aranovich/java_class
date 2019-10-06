@@ -17,10 +17,10 @@ jobs:
       - image: circleci/mysql:8.0.15
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
-          - MYSQL_ROOT_PASSWORD: password
+          - MYSQL_ROOT_PASSWORD: pamplinas!
           - MYSQL_DATABASE: stocks
-          - MYSQL_USER: user
-          - MYSQL_PASSWORD: Lowell
+          - MYSQL_USER: foo
+          - MYSQL_PASSWORD: password
           
     working_directory: ~/repo
     
