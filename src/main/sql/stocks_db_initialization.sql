@@ -1,5 +1,7 @@
 /** create the stocks database */
 
+USE stocks;
+
 DROP TABLE IF EXISTS quotes CASCADE;
 CREATE TABLE quotes(
    id INT NOT NULL AUTO_INCREMENT,
