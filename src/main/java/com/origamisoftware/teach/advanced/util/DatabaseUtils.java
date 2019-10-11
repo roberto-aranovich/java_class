@@ -22,7 +22,7 @@ public class DatabaseUtils {
 
     //  Database credentials
     private static final String USER = "user";
-    private static final String PASS = "password";
+    private static final String PASS = "Lowell";
 
     public static Connection getConnection() throws DatabaseConnectionException {
         Connection connection = null;
