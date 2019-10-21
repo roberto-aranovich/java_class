@@ -19,8 +19,8 @@ jobs:
         environment:
           - MYSQL_ROOT_PASSWORD: pamplinas!
           - MYSQL_DATABASE: stocks
-          - MYSQL_USER: foo
-          - MYSQL_PASSWORD: password
+          - MYSQL_USER: monty
+          - MYSQL_PASSWORD: some_pass
           
     working_directory: ~/repo
     
