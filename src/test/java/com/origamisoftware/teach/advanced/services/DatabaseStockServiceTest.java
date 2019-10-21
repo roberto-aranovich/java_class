@@ -3,6 +3,7 @@ package com.origamisoftware.teach.advanced.services;
 import com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplication;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import org.junit.Test;
+import org.junit.Before;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,6 +12,8 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import com.origamisoftware.teach.advanced.util.DatabaseUtils;
+
 /**
  * Unit tests for the DatabaseStockService
  */
@@ -18,6 +21,12 @@ public class DatabaseStockServiceTest {
 
     private BasicStockQuoteApplication basicStockQuoteApplication;
     private StockService stockServiceMock;
+    
+      @Before
+    public void setup() throws Exception {
+        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    }
+
 
     @Test
     public void testGetQuote() throws Exception {
