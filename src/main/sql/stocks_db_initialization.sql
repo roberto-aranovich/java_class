@@ -1,3 +1,8 @@
+DROP database stocks;
+Create database stocks;
+
+USE stocks;
+
 /** create the stocks database */
 
 CREATE TABLE stocks.quotes(
