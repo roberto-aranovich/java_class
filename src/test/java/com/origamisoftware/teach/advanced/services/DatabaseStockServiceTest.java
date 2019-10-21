@@ -3,9 +3,11 @@ package com.origamisoftware.teach.advanced.services;
 import com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplication;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.model.StockTable;
+import com.origamisoftware.teach.advanced.util.DatabaseUtils;
 import com.origamisoftware.teach.advanced.xml.Stock;
 import com.origamisoftware.teach.advanced.xml.Stocks;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;
@@ -29,22 +31,24 @@ public class DatabaseStockServiceTest {
     private BasicStockQuoteApplication basicStockQuoteApplication;
     private StockService stockServiceMock;
 
+    @Before
+    public void setup() throws Exception {
+        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    }
+
     @Test
     public void testGetQuote() throws Exception {
-        //DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
 
         DatabaseStockService databaseStockService = new DatabaseStockService();
         String symbol = "APPL";
         StockQuote stockQuote = databaseStockService.getQuote(symbol);
-        System.out.println( stockQuote.toString() );
+        System.out.println(stockQuote.toString());
         assertNotNull("Verify we can get a stock quote from the db", stockQuote);
         assertEquals("Make sure the symbols match", symbol, stockQuote.getSymbol());
     }
 
     @Test
     public void testGetQuote2() throws Exception {
-        //DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
-
         DatabaseStockService databaseStockService = new DatabaseStockService();
         String symbol = "GOOG";
         String from = "2000/01/01";
@@ -55,8 +59,8 @@ public class DatabaseStockServiceTest {
         calendarFrom.setTime(simpleDateFormat.parse(from));
         calendarUntil.setTime(simpleDateFormat.parse(until));
         List<StockQuote> stockQuotes = databaseStockService.getQuote(symbol, calendarFrom, calendarUntil);
-        for(StockQuote quote : stockQuotes){
-            System.out.println( quote.toString() );
+        for (StockQuote quote : stockQuotes) {
+            System.out.println(quote.toString());
         }
         assertNotNull("Verify we can get a stock quote list from the db", stockQuotes);
         assertEquals("Make sure the symbols match", symbol, stockQuotes.get(0).getSymbol());
@@ -64,7 +68,7 @@ public class DatabaseStockServiceTest {
 
     @Test
     public void testAddOrUpdateQuote() throws JAXBException, IOException, ParseException, StockServiceException {
-        try{
+        try {
             StockService stockService = ServiceFactory.getStockServiceInstance();
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -81,28 +85,27 @@ public class DatabaseStockServiceTest {
             }
 
             // here is how to go from XML to Java
-            JAXBContext jaxbContext = JAXBContext.newInstance( Stocks.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Stocks.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             Stocks stocks = (Stocks) unmarshaller.unmarshal(new StringReader(stocksXmlInstance));
             System.out.println(stocks.toString());
-            for( Stock  stock : stocks.getStocks()){
+            for (Stock stock : stocks.getStocks()) {
                 System.out.println(stock.toString());
             }
 
             int index = 101;
-            for( Stock quote : stocks.getStocks()){
+            for (Stock quote : stocks.getStocks()) {
                 StockTable quoteTable = new StockTable();
-                quoteTable.setId( index );
-                quoteTable.setSymbol( quote.getSymbol() );
-                quoteTable.setPrice( new BigDecimal(Float.parseFloat(quote.getPrice())) );
+                quoteTable.setId(index);
+                quoteTable.setSymbol(quote.getSymbol());
+                quoteTable.setPrice(new BigDecimal(Float.parseFloat(quote.getPrice())));
                 Calendar quoteCalendar = Calendar.getInstance();
                 quoteCalendar.setTime(dateFormat.parse(quote.getTime()));
                 quoteTable.setTime(quoteCalendar);
-                stockService.addOrUpdateQuote( quoteTable );
+                stockService.addOrUpdateQuote(quoteTable);
                 index++;
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             Assert.fail("addOrUpdateQuote fails with exception: " + e);
         }
     }
