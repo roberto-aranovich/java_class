@@ -1,6 +1,9 @@
-/** create the stocks database */
+DROP database stocks;
+Create database stocks;
 
 USE stocks;
+
+/** create the stocks database */
 
 DROP TABLE IF EXISTS quotes CASCADE;
 CREATE TABLE quotes(
