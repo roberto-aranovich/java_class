@@ -24,8 +24,8 @@ public class DatabaseUtils {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/stocks?useUnicode=yes&characterEncoding=UTF-8";
 
     //  Database credentials
-    private static final String USER = "user";
-    private static final String PASS = "Lowell";
+    private static final String USER = "monty";
+    private static final String PASS = "some_pass";
 
     public static Connection getConnection() throws DatabaseConnectionException {
         Connection connection = null;
