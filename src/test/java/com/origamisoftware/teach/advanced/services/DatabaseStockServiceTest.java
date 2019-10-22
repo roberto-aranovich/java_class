@@ -5,6 +5,7 @@ import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Before;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -20,6 +21,9 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.origamisoftware.teach.advanced.util.DatabaseUtils;
+
+
 /**
  * Unit tests for the DatabaseStockService
  */
@@ -27,6 +31,11 @@ public class DatabaseStockServiceTest {
 
     private BasicStockQuoteApplication basicStockQuoteApplication;
     private StockService stockServiceMock;
+    
+    @Before
+    public void setup() throws Exception {
+        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    }
 
     @Test
     public void testGetQuote() throws Exception {
