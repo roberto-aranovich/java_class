@@ -3,6 +3,7 @@ package com.origamisoftware.teach.advanced.services;
 import com.origamisoftware.teach.advanced.apps.stockquote.BasicStockQuoteApplication;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.model.StockTable;
+import com.origamisoftware.teach.advanced.util.DatabaseUtils;
 import com.origamisoftware.teach.advanced.xml.Stock;
 import com.origamisoftware.teach.advanced.xml.Stocks;
 import org.junit.Assert;
