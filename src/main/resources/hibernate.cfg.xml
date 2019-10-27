@@ -14,8 +14,8 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <property name="hibernate.connection.username">foo</property>
-        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.username">monty</property>
+        <property name="hibernate.connection.password">some_pass</property>
 
         <mapping class="com.origamisoftware.teach.advanced.model.StockTable"/>
         <mapping class="com.origamisoftware.teach.advanced.model.Person"/>
