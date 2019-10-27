@@ -8,10 +8,19 @@ import java.sql.Statement;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
+import com.origamisoftware.teach.advanced.util.DatabaseUtils;
+
+
 /**
  *  Tests for the DatabaseUtils class
  */
 public class DatabaseUtilsTest {
+    
+    @Before
+    public void setup() throws Exception {
+        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    }
 
     @Test
     public void testGetConnection() throws Exception{
