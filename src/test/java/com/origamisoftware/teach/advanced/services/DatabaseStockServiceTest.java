@@ -28,6 +28,11 @@ public class DatabaseStockServiceTest {
 
     private BasicStockQuoteApplication basicStockQuoteApplication;
     private StockService stockServiceMock;
+    
+     @Before
+    public void setup() throws Exception {
+        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    }
 
     @Test
     public void testGetQuote() throws Exception {
