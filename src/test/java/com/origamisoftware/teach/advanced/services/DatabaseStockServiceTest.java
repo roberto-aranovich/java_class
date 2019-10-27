@@ -6,6 +6,7 @@ import com.origamisoftware.teach.advanced.model.StockTable;
 import com.origamisoftware.teach.advanced.xml.Stock;
 import com.origamisoftware.teach.advanced.xml.Stocks;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;
