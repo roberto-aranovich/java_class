@@ -76,7 +76,7 @@ public class DatabaseStockServiceTest {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-            File stocksXmlFile = new File(".\\src\\main\\resources\\xml\\stock_info.xml");
+            File stocksXmlFile = new File("./src/main/resources/xml/stock_info.xml");
             BufferedReader br = null;
             br = new BufferedReader(new FileReader(stocksXmlFile));
 
