@@ -31,8 +31,8 @@ public class DatabaseUtils {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/stocks?useUnicode=yes&characterEncoding=UTF-8";
 
     //  Database credentials
-    private static final String USER = "foo";
-    private static final String PASS = "password";
+    private static final String USER = "monty";
+    private static final String PASS = "some_pass";
 
 
     /*
